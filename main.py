@@ -11,6 +11,7 @@ screen.listen()
 
 player = Player()
 car_manager = CarManager()
+scoreboard = Scoreboard()
 
 screen.onkey(fun=player.move, key="Up")
 
@@ -30,6 +31,8 @@ while game_is_on:
     if player.ycor() > 280:
         print("YOU WON")
         player.reset_position()
+        car_manager.increase_speed()
+        scoreboard.incremenet_level()
         # game_is_on = False
 
 screen.exitonclick()
