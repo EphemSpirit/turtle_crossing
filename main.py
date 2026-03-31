@@ -20,3 +20,16 @@ while game_is_on:
     screen.update()
     car_manager.create_car()
     car_manager.move_cars()
+
+    # Detect car collision
+    for car in car_manager.all_cars:
+        if player.distance(car) < 20:
+            game_is_on = False
+
+    # player hit the end
+    if player.ycor() > 280:
+        print("YOU WON")
+        player.reset_position()
+        # game_is_on = False
+
+screen.exitonclick()
